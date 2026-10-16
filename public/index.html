@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline Weather</title>
+
+  <!-- roboto font and my style sheet -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!-- City drop down and unit switch -->
+  <header class="topbar">
+
+    <div class="city-picker">
+      <label for="city-select"> Weather in</label>
+      <select class="city-select" id="city-select">
+        <option value="toronto">Toronto</option>
+        <option value="vancouver">Vancouver</option>
+        <option value="montreal">Montreal</option>
+        <option value="mansa">Mansa</option>
+      </select>
+      <span class="city-region" id="city-region"></span>
+    </div>
+
+    <div class="units">
+      <button class="unit-btn" type="button" id="unit-c" aria-pressed="true">&deg;C</button>
+      <span class="unit-divider">|</span>
+      <button class="unit-btn" type="button" id="unit-f" aria-pressed="false">&deg;F</button>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- error message -->
+    <p class="status" id="status" hidden></p>
+
+    <!-- current weather -->
+    <section class="current" id="current">
+
+      <div>
+        <img class="big-icon" id="big-icon" alt="" hidden>
+        <p class="sun-times">
+          Sunrise: <span id="sunrise"></span><br>
+          Sunset: <span id="sunset"></span>
+        </p>
+      </div>
+
+      <div>
+        <p class="now-date" id="now-date">Loading...</p>
+        <p class="now-temp" id="now-temp"></p>
+        <p class="now-feels" id="now-feels"></p>
+        <p class="now-summary" id="now-summary"></p>
+      </div>
+
+      <div class="more">
+        <h2 class="more-title">More details:</h2>
+        <ul class="more-list">
+          <li>Wind speed: <strong id="wind"></strong></li>
+          <li>Air humidity: <strong id="humidity"></strong></li>
+          <li>Pressure: <strong id="pressure"></strong></li>
+          <li>Precipitation probability: <strong id="precip"></strong></li>
+        </ul>
+      </div>
+
+      <!-- every third hour of the selected day -->
+      <div class="hourly">
+        <ul class="hour-labels">
+          <li>Night</li>
+          <li>Morning</li>
+          <li>Day</li>
+          <li>Evening</li>
+        </ul>
+        <ul class="hour-list" id="hour-list"></ul>
+      </div>
+
+    </section>
+
+    <!-- forecast for the next few days -->
+    <section class="forecast">
+      <div class="forecast-head">
+        <h2 class="forecast-title">Forecast</h2>
+        <p class="forecast-hint">Pick a day to see its hours</p>
+      </div>
+      <ul class="day-list" id="day-list"></ul>
+    </section>
+
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
